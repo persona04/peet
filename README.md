@@ -1,11 +1,14 @@
-<b>peet</b>
-
-Description: <b>peet</b> is a <b>p</b>rivilege <b>e</b>scalation <b>e</b>numeration <b>t</b>ool
-
-* Existing features:
-- nothing for now :p
+<h1>peet</h1>
  
-* Features to be added: 
-- Simple informations...
-- /etc/* enumeration
+<p>Description: <b>peet</b> is a <b>p</b>rivilege <b>e</b>scalation <b>e</b>numeration <b>t</b>ool</p>
 
+<p><b>Existing features:</b></p>
+<ul>
+	<li>Nothing for now :p</li>
+</ul>
+ 
+<p><b>Features to be added:</b></p>
+<ul>
+<li>Simple user and system informations...</li>
+<li>/etc/* enumeration</li>
+</ul>
