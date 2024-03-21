@@ -36,7 +36,32 @@ function get_sys_info(){
 
 }
 
+function get_etc_info(){
+echo -e "/etc ENUM\n"
+
+files=("/etc/passwd" "/etc/shadow" "/etc/hosts" "/etc/sudoers" "/etc/crontab")
+
+for file in ${files[@]}; do
+
+if [[ -e $file ]]; then
+echo -ne "${file}: "
+ if [[ -O $file ]]; then
+  echo -ne "owner "
+ fi
+ if [[ -G $file ]];then
+  echo -ne "group "
+ fi
+ if [[ -r $file ]]; then
+  echo -ne "read "
+ fi
+ if [[ -w $file ]]; then
+  echo -ne  "write "
+ fi
+ echo -ne "\n"
+fi
+done
+}
 
 get_user_info
 get_sys_info
-
+get_etc_info
