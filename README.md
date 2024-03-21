@@ -10,5 +10,9 @@
 <p><b>Features to be added:</b></p>
 <ul>
 <li>Simple user and system informations...</li>
-<li>/etc/* enumeration</li>
+<li>Config file enumeration</li>
+<li>Service enumeration</li>
+<li>SUID and SGID enumeration</li>
+<li>Capabilities enumeration</li>
+<li>Password enumeration </li>
 </ul>
