@@ -27,5 +27,16 @@ if [[ $flag -eq 1 ]]; then
 fi
 }
 
+function get_sys_info(){
+ echo -e "\nSYSTEM INFO\n"
+ echo -e "hostname      : $(hostname)\n"
+ echo -e "timedatectl   :\n$(timedatectl)\n"
+ echo -e "kernel vers   : $(uname -r)\n"
+ echo -e "hardware name : $(uname -m)\n"
+
+}
+
 
 get_user_info
+get_sys_info
+
