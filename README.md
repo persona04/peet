@@ -9,8 +9,8 @@
  
 <p><b>Features to be added:</b></p>
 <ul>
-<li>Simple user and system informations...</li>
-<li>Config file enumeration</li>
+<li><del>Simple user and system informations...</del></li>
+<li><del>Config file enumeration</del></li>
 <li>Service enumeration</li>
 <li>SUID and SGID enumeration</li>
 <li>Capabilities enumeration</li>
