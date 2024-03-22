@@ -4,7 +4,9 @@
 
 <p><b>Existing features:</b></p>
 <ul>
-	<li>Nothing for now :p</li>
+	<li>Simple user and system informations</li>
+        <li>Config file enumeration</li>
+	<li>SUID and SGID enumeration</li>
 </ul>
  
 <p><b>Features to be added:</b></p>
@@ -12,7 +14,7 @@
 <li><del>Simple user and system informations...</del></li>
 <li><del>Config file enumeration</del></li>
 <li>Service enumeration</li>
-<li>SUID and SGID enumeration</li>
+<li><del>SUID and SGID enumeration</del></li>
 <li>Capabilities enumeration</li>
 <li>Password enumeration </li>
 </ul>
