@@ -57,11 +57,55 @@ echo -ne "${file}: "
  if [[ -w $file ]]; then
   echo -ne  "write "
  fi
- echo -ne "\n"
+  echo -ne "\n"
 fi
 done
 }
 
+function get_suid_sgid_info(){
+echo -en '\n\nSUID & SGID Enumeration'
+
+ignored_suid=("chfn" "gpasswd" "mount" "passwd" "ntfs-3g" "umount" "rsh-redone-rsh" "chsh" "su" "pkexec" "rsh-redone-rlogin" "fusermount3" "newgrp" "vmware-user-suid-wrapper" "sudo" "mount.cifs" "pppd" "mount.nfs" "Xorg.wrap" "polkit-agent-helper-1" "dbus-daemon-launch-helper" "ssh-keysign")
+ignored_sgid=("fonts" "python2.7" "dist-packages" "site-packages" "plocate" "chage" "expiry" "wall" "dotlockfile" "crontab" "write" "ssh-agent" "unix_chkpwd" "Xorg.wrap" "utempter" "redis" "journal" "local" "mail" "journal" "postgresql" "redis" "chatscripts" "peers")
+
+mapfile suid <<< $(find / -perm -u=s 2>/dev/null | awk -F "/" '{print $NF}' )
+mapfile sgid <<< $(find / -perm -g=s 2>/dev/null | awk -F "/" '{print $NF}' )
+
+declare -a danger_suid
+declare -a danger_sgid
+
+for bin in ${suid[@]}; do
+   if [[ -z "$(grep -w ${bin} <<< ${ignored_suid[@]})" ]]; then
+	danger_suid+=("${bin}")
+   fi
+done
+for bin in ${sgid[@]}; do
+   if [[ -z "$(grep -w ${bin} <<< ${ignored_sgid[@]} )" ]]; then
+      danger_sgid+=("${bin}")
+   fi
+done
+
+if [[ -n ${danger_suid} ]]; then
+   echo -en "\nSUID:\n"
+   for i in ${danger_suid[@]}; do
+      echo "$i"
+   done
+else
+   echo "No suspicious SUID..."
+fi
+
+if [[ -n ${danger_sgid} ]]; then
+   echo -en "\nSGID\n:"
+   for i in ${danger_sgid[@]}; do
+      echo "$i"
+   done
+else
+   echo "No suspcious SGID..."
+fi
+}
+
+
 get_user_info
 get_sys_info
 get_etc_info
+get_suid_sgid_info
