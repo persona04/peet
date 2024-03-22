@@ -95,7 +95,7 @@ else
 fi
 
 if [[ -n ${danger_sgid} ]]; then
-   echo -en "\nSGID\n:"
+   echo -en "\nSGID:\n"
    for i in ${danger_sgid[@]}; do
       echo "$i"
    done
@@ -104,8 +104,14 @@ else
 fi
 }
 
+function get_cap_info(){
+echo -en "\n\n Cap Enum\n\n"
+getcap -r / 2>/dev/null
+
+}
 
 get_user_info
 get_sys_info
 get_etc_info
 get_suid_sgid_info
+get_cap_info

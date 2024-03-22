@@ -7,6 +7,7 @@
 	<li>Simple user and system informations</li>
         <li>Config file enumeration</li>
 	<li>SUID and SGID enumeration</li>
+	<li>Capabilities enumeration<li>
 </ul>
  
 <p><b>Features to be added:</b></p>
@@ -15,6 +16,6 @@
 <li><del>Config file enumeration</del></li>
 <li>Service enumeration</li>
 <li><del>SUID and SGID enumeration</del></li>
-<li>Capabilities enumeration</li>
+<li><del>Capabilities enumeration</del></li>
 <li>Password enumeration </li>
 </ul>
